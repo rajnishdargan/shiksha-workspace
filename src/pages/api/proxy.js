@@ -23,13 +23,17 @@ export default async function handler(req, res) {
   
     try {
       // Prepare options for the proxied request
+      const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${API_KEY}`,
+        'tenantId': TENANT_ID,
+      };
+  
+      console.log('Request Headers ===>', headers);  // Log the headers you are passing
+  
       const options = {
         method,
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${API_KEY}`,
-          'tenantId': TENANT_ID,
-        },
+        headers,
       };
   
       // If the method is POST or PUT, include the body
@@ -39,12 +43,16 @@ export default async function handler(req, res) {
   
       // Make the proxied request to the target URL
       const response = await fetch(targetUrl, options);
-  
-      // Parse response from the external API
-      const data = await response.json();
-  
-      // Return the response back to the client
-      res.status(response.status).json(data);
+      const contentType = response.headers.get('content-type');
+
+      if (contentType && contentType.includes('application/json')) {
+        const data = await response.json();
+        res.status(response.status).json(data);
+      } else {
+        const text = await response.text(); // Get the raw response in case it's HTML
+        console.log('raw data ==>', text)
+        res.status(response.status).send(text); // Return the HTML/text as it is
+      }
     } catch (error) {
       console.error('Error in proxy:', error.message);
       res.status(500).json({ message: 'Error fetching data', error: error.message });
