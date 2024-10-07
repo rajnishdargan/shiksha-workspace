@@ -29,8 +29,6 @@ export default async function handler(req, res) {
         'tenantId': TENANT_ID,
       };
   
-      console.log('Request Headers ===>', headers);  // Log the headers you are passing
-  
       const options = {
         method,
         headers,
