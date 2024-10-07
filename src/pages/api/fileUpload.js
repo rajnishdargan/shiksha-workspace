@@ -1,63 +1,95 @@
+// pages/api/fileUpload.js
 import multer from 'multer';
 import FormData from 'form-data';
-import fetch from 'node-fetch';
+import axios from 'axios'; // Make sure to install axios
 
-// Multer configuration to handle file uploads in memory
-const upload = multer({ dest: '/tmp' }); // You can use memoryStorage if you don't want to use disk
+// Set up Multer with a file size limit (e.g., 2 MB)
+const upload = multer({
+  limits: {
+    fileSize: 2 * 1024 * 1024, // 2 MB limit
+  },
+});
 
+// Create an upload handler
+const uploadHandler = upload.any();
+
+// Next.js API Route config to disable body parsing
 export const config = {
   api: {
-    bodyParser: false, // Disable body parsing to handle multipart form-data
+    bodyParser: false,
   },
 };
 
-// Middleware to handle form-data uploads
-const uploadMiddleware = upload.single('file'); // Assumes the file input field is named 'file'
-
-export default function handler(req, res) {
+// Helper function to wrap the upload process in a promise
+const uploadPromise = (req, res) => {
   return new Promise((resolve, reject) => {
-    uploadMiddleware(req, res, async (err) => {
+    uploadHandler(req, res, (err) => {
       if (err) {
-        console.error('File upload error:', err);
-        reject(res.status(500).json({ message: 'File upload failed', error: err.message }));
-        return;
-      }
-
-      const formData = new FormData();
-      // Append the uploaded file to form-data
-      if (req.file) {
-        formData.append('file', req.file.buffer, req.file.originalname);
-      }
-
-      // Append additional fields required for the API call
-      formData.append('fileUrl', req.body.fileUrl || '');
-      formData.append('mimeType', req.body.mimeType || '');
-
-      try {
-        // Forward the request to the actual middleware API
-        const targetUrl = `${process.env.BASE_URL}/action/asset/v1/upload/${req.query.path}`;
-        const response = await fetch(targetUrl, {
-          method: 'POST',
-          headers: {
-            ...formData.getHeaders(),
-            Authorization: `Bearer ${process.env.AUTH_API_TOKEN}`,
-            tenantId: process.env.TENANT_ID,
-          },
-          body: formData,
-        });
-
-        const contentType = response.headers.get('content-type');
-        if (contentType && contentType.includes('application/json')) {
-          const data = await response.json();
-          resolve(res.status(response.status).json(data));
-        } else {
-          const text = await response.text();
-          resolve(res.status(response.status).send(text));
+        if (err instanceof multer.MulterError) {
+          return reject(new Error(`File too large: ${err.message}`));
         }
-      } catch (error) {
-        console.error('Error forwarding file upload:', error.message);
-        reject(res.status(500).json({ message: 'Error forwarding request', error: error.message }));
+        return reject(new Error('Error processing form data: ' + err.message));
       }
+      resolve(req);
     });
   });
+};
+
+// Main handler function for Next.js API route
+export default async function handler(req, res) {
+  // Handle only POST requests
+  if (req.method !== 'POST') {
+    return res.status(405).json({ message: 'Method not allowed' });
+  }
+
+  try {
+    // Await the file upload
+    await uploadPromise(req, res);
+
+    // Prepare FormData for the request to the backend service
+    const formData = new FormData();
+
+    // Attach uploaded files and form data to FormData
+    if (req.files) {
+      req.files.forEach((file) => {
+        formData.append('file', file.buffer, {
+          filename: file.originalname,
+          contentType: file.mimetype,
+        });
+      });
+    }
+
+    // Attach other body parameters if present
+    for (const key in req.body) {
+      formData.append(key, req.body[key]);
+    }
+
+    // Set your base URL
+    const baseURL = process.env.BASE_URL; // replace with your actual base URL
+    const authApiToken = process.env.AUTH_API_TOKEN; // replace with your actual API key
+    const tenantId = process.env.TENANT_ID; // replace with your actual tenant ID
+
+    // Extract the relative URL from the incoming request (after /action)
+    const relativePath = req.url.replace('/api/fileUpload', '');
+
+    // Construct the final URL using baseURL + relativePath
+    const finalURL = `${baseURL}${relativePath}`;
+
+    // Make a POST request to the backend service
+    const response = await axios.post(finalURL, formData, {
+      headers: {
+        ...formData.getHeaders(), // Set headers for FormData
+        'Authorization': `Bearer ${authApiToken}`,  // Set your API key in the headers
+        'tenantId': tenantId,  // Set your tenant ID in the headers
+      },
+      // Pass along any query parameters from the original request
+      params: req.query,
+    });
+
+    // Return the response from the backend service
+    return res.status(response.status).json(response.data);
+  } catch (error) {
+    console.error('Error in file upload:', error);
+    return res.status(500).json({ message: error.message });
+  }
 }
