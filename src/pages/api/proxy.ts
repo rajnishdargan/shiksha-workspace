@@ -23,7 +23,7 @@ export default async function handler(
   const cookies = cookie.parse(req.headers.cookie || "");
   const tokenFromCookie = cookies.authToken;
 
-  const token = tokenFromCookie || API_KEY;
+  const token = API_KEY;
 
   if (!token) {
     console.error("No valid token available");

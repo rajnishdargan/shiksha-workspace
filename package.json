@@ -37,10 +37,10 @@
     "next-transpile-modules": "^10.0.1",
     "react": "^18",
     "react-dom": "^18",
+    "reflect-metadata": "^0.1.13",
     "svg2img": "^1.0.0-beta.2",
     "url": "^0.11.3",
-    "uuid": "^10.0.0",
-    "reflect-metadata": "^0.1.13"
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@types/jquery": "^3.5.31",

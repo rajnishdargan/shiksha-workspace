@@ -45,10 +45,27 @@ const CourseCard: React.FC<ContentCardProps> = ({
   const onContentClick = () => {
     if (mimeType === MIME_TYPE.QUESTIONSET_MIME_TYPE) {
       router.push({ pathname: `/editor`, query: { identifier, mode } });
-    } else if (mimeType && MIME_TYPE.GENERIC_MIME_TYPE.includes(mimeType) && mode === 'review') {
-      router.push({pathname: `/workspace/content/review` , query: { identifier, mode } });
-    } else if (mimeType && MIME_TYPE.GENERIC_MIME_TYPE.includes(mimeType) && mode !== 'review') {
+    } else if (
+      mimeType &&
+      MIME_TYPE.GENERIC_MIME_TYPE.includes(mimeType) &&
+      mode === "review"
+    ) {
+      router.push({
+        pathname: `/workspace/content/review`,
+        query: { identifier, mode },
+      });
+    } else if (
+      mimeType &&
+      MIME_TYPE.GENERIC_MIME_TYPE.includes(mimeType) &&
+      mode !== "review"
+    ) {
       router.push({ pathname: `/upload-editor`, query: { identifier } });
+    } else if (
+      mimeType &&
+      MIME_TYPE.COURSE_MIME_TYPE.includes(mimeType) &&
+      mode !== "review"
+    ) {
+      router.push({ pathname: `/collection`, query: { identifier } });
     }
   };
 

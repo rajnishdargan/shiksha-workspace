@@ -113,208 +113,251 @@ export const videoMetadata = {
 };
 
 export const quMLMetadata = {
-    "copyright": "2024",
-    "previewUrl": "https://knowlg-public.s3-ap-south-1.amazonaws.com/questionset/do_214155920494116864179/do_214155920494116864179_html_1728017830028.html",
-    "downloadUrl": "https://knowlg-public.s3-ap-south-1.amazonaws.com/questionset/do_214155920494116864179/test-questionset_1728017829810_do_214155920494116864179_1.ecar",
-    "language": [
-        "English"
-    ],
-    "mimeType": "application/vnd.sunbird.questionset",
-    "showHints": false,
-    "variants": {
-        "spine": {
-            "ecarUrl": "https://knowlg-public.s3-ap-south-1.amazonaws.com/questionset/do_214155920494116864179/test-questionset_1728017829462_do_214155920494116864179_1_SPINE.ecar",
-            "size": "3091"
-        },
-        "online": {
-            "ecarUrl": "https://knowlg-public.s3-ap-south-1.amazonaws.com/questionset/do_214155920494116864179/test-questionset_1728017829653_do_214155920494116864179_1_ONLINE.ecar",
-            "size": "3089"
-        },
-        "full": {
-            "ecarUrl": "https://knowlg-public.s3-ap-south-1.amazonaws.com/questionset/do_214155920494116864179/test-questionset_1728017829810_do_214155920494116864179_1.ecar",
-            "size": "4421"
-        }
+  copyright: "2024",
+  previewUrl:
+    "https://knowlg-public.s3-ap-south-1.amazonaws.com/questionset/do_214155920494116864179/do_214155920494116864179_html_1728017830028.html",
+  downloadUrl:
+    "https://knowlg-public.s3-ap-south-1.amazonaws.com/questionset/do_214155920494116864179/test-questionset_1728017829810_do_214155920494116864179_1.ecar",
+  language: ["English"],
+  mimeType: "application/vnd.sunbird.questionset",
+  showHints: false,
+  variants: {
+    spine: {
+      ecarUrl:
+        "https://knowlg-public.s3-ap-south-1.amazonaws.com/questionset/do_214155920494116864179/test-questionset_1728017829462_do_214155920494116864179_1_SPINE.ecar",
+      size: "3091",
     },
-    "objectType": "QuestionSet",
-    "appIcon": "",
-    "primaryCategory": "Practice Question Set",
-    "children": [
+    online: {
+      ecarUrl:
+        "https://knowlg-public.s3-ap-south-1.amazonaws.com/questionset/do_214155920494116864179/test-questionset_1728017829653_do_214155920494116864179_1_ONLINE.ecar",
+      size: "3089",
+    },
+    full: {
+      ecarUrl:
+        "https://knowlg-public.s3-ap-south-1.amazonaws.com/questionset/do_214155920494116864179/test-questionset_1728017829810_do_214155920494116864179_1.ecar",
+      size: "4421",
+    },
+  },
+  objectType: "QuestionSet",
+  appIcon: "",
+  primaryCategory: "Practice Question Set",
+  children: [
+    {
+      lastStatusChangedOn: "2024-10-04T04:55:37.898+0000",
+      timeLimits: {
+        questionSet: {
+          max: 0,
+          min: 0,
+        },
+      },
+      parent: "do_214155920494116864179",
+      children: [
         {
-            "lastStatusChangedOn": "2024-10-04T04:55:37.898+0000",
-            "timeLimits": {
-                "questionSet": {
-                    "max": 0,
-                    "min": 0
-                }
+          copyright: "2024",
+          lastStatusChangedOn: "2024-10-04T04:57:09.267+0000",
+          parent: "do_214155920669442048180",
+          author: "RD",
+          name: "MCQ-1 Sum",
+          createdOn: "2024-10-04T04:55:19.638+0000",
+          maxScore: 1,
+          lastUpdatedOn: "2024-10-04T04:57:09.267+0000",
+          showTimer: false,
+          identifier: "do_214155921159274496182",
+          compatibilityLevel: 5,
+          primaryCategory: "Multiple Choice Question",
+          downloadUrl:
+            "https://knowlg-public.s3-ap-south-1.amazonaws.com/question/do_214155921159274496182/mcq-1-sum_1728017828871_do_214155921159274496182_1.ecar",
+          interactionTypes: ["choice"],
+          versionKey: "1728017719641",
+          mimeType: "application/vnd.sunbird.question",
+          code: "c987f93e-dff7-45b3-a0f3-6a3611a42c2e",
+          license: "CC BY 4.0",
+          qumlVersion: 1.1,
+          prevStatus: "Draft",
+          showHints: false,
+          templateId: "mcq-vertical",
+          language: ["English"],
+          showFeedback: false,
+          objectType: "Question",
+          status: "Live",
+          contentEncoding: "gzip",
+          depth: 2,
+          allowAnonymousAccess: "Yes",
+          contentDisposition: "inline",
+          schemaVersion: "1.1",
+          artifactUrl:
+            "https://knowlg-public.s3-ap-south-1.amazonaws.com/question/do_214155921159274496182/do_214155921159274496182_1728017828544.zip",
+          complexityLevel: [],
+          visibility: "Parent",
+          qType: "MCQ",
+          showSolutions: false,
+          variants: {
+            full: {
+              ecarUrl:
+                "https://knowlg-public.s3-ap-south-1.amazonaws.com/question/do_214155921159274496182/mcq-1-sum_1728017828871_do_214155921159274496182_1.ecar",
+              size: "2470",
             },
-            "parent": "do_214155920494116864179",
-            "children": [
-                {
-                    "copyright": "2024",
-                    "lastStatusChangedOn": "2024-10-04T04:57:09.267+0000",
-                    "parent": "do_214155920669442048180",
-                    "author": "RD",
-                    "name": "MCQ-1 Sum",
-                    "createdOn": "2024-10-04T04:55:19.638+0000",
-                    "maxScore": 1,
-                    "lastUpdatedOn": "2024-10-04T04:57:09.267+0000",
-                    "showTimer": false,
-                    "identifier": "do_214155921159274496182",
-                    "compatibilityLevel": 5,
-                    "primaryCategory": "Multiple Choice Question",
-                    "downloadUrl": "https://knowlg-public.s3-ap-south-1.amazonaws.com/question/do_214155921159274496182/mcq-1-sum_1728017828871_do_214155921159274496182_1.ecar",
-                    "interactionTypes": [
-                        "choice"
-                    ],
-                    "versionKey": "1728017719641",
-                    "mimeType": "application/vnd.sunbird.question",
-                    "code": "c987f93e-dff7-45b3-a0f3-6a3611a42c2e",
-                    "license": "CC BY 4.0",
-                    "qumlVersion": 1.1,
-                    "prevStatus": "Draft",
-                    "showHints": false,
-                    "templateId": "mcq-vertical",
-                    "language": [
-                        "English"
-                    ],
-                    "showFeedback": false,
-                    "objectType": "Question",
-                    "status": "Live",
-                    "contentEncoding": "gzip",
-                    "depth": 2,
-                    "allowAnonymousAccess": "Yes",
-                    "contentDisposition": "inline",
-                    "schemaVersion": "1.1",
-                    "artifactUrl": "https://knowlg-public.s3-ap-south-1.amazonaws.com/question/do_214155921159274496182/do_214155921159274496182_1728017828544.zip",
-                    "complexityLevel": [],
-                    "visibility": "Parent",
-                    "qType": "MCQ",
-                    "showSolutions": false,
-                    "variants": {
-                        "full": {
-                            "ecarUrl": "https://knowlg-public.s3-ap-south-1.amazonaws.com/question/do_214155921159274496182/mcq-1-sum_1728017828871_do_214155921159274496182_1.ecar",
-                            "size": "2470"
-                        },
-                        "online": {
-                            "ecarUrl": "https://knowlg-public.s3-ap-south-1.amazonaws.com/question/do_214155921159274496182/mcq-1-sum_1728017829051_do_214155921159274496182_1_ONLINE.ecar",
-                            "size": "1180"
-                        }
-                    },
-                    "index": 1,
-                    "pkgVersion": 1
-                }
-            ],
-            "name": "Section-1",
-            "navigationMode": "non-linear",
-            "createdOn": "2024-10-04T04:54:19.844+0000",
-            "generateDIALCodes": "No",
-            "lastUpdatedOn": "2024-10-04T04:55:37.898+0000",
-            "showTimer": false,
-            "identifier": "do_214155920669442048180",
-            "description": "Section-1",
-            "containsUserData": "No",
-            "allowSkip": "Yes",
-            "compatibilityLevel": 6,
-            "trackable": {
-                "enabled": "No",
-                "autoBatch": "No"
+            online: {
+              ecarUrl:
+                "https://knowlg-public.s3-ap-south-1.amazonaws.com/question/do_214155921159274496182/mcq-1-sum_1728017829051_do_214155921159274496182_1_ONLINE.ecar",
+              size: "1180",
             },
-            "primaryCategory": "Practice Question Set",
-            "setType": "materialised",
-            "languageCode": [
-                "en"
-            ],
-            "attributions": [],
-            "scoreCutoffType": "AssessmentLevel",
-            "versionKey": "1728017659844",
-            "mimeType": "application/vnd.sunbird.questionset",
-            "code": "bed3d9c0-d272-4bc5-8df8-f19bc55abf5e",
-            "license": "CC BY 4.0",
-            "qumlVersion": 1.1,
-            "prevStatus": "Draft",
-            "showHints": false,
-            "language": [
-                "English"
-            ],
-            "showFeedback": true,
-            "objectType": "QuestionSet",
-            "status": "Live",
-            "requiresSubmit": "No",
-            "shuffle": true,
-            "contentEncoding": "gzip",
-            "depth": 1,
-            "instructions": "<p>This section contains simple maths questions !!</p>",
-            "allowAnonymousAccess": "Yes",
-            "contentDisposition": "inline",
-            "schemaVersion": "1.1",
-            "allowBranching": "No",
-            "visibility": "Parent",
-            "showSolutions": true,
-            "index": 1
-        }
-    ],
-    "contentEncoding": "gzip",
-    "generateDIALCodes": "No",
-    "showSolutions": false,
-    "trackable": {
-        "enabled": "No",
-        "autoBatch": "No"
+          },
+          index: 1,
+          pkgVersion: 1,
+        },
+      ],
+      name: "Section-1",
+      navigationMode: "non-linear",
+      createdOn: "2024-10-04T04:54:19.844+0000",
+      generateDIALCodes: "No",
+      lastUpdatedOn: "2024-10-04T04:55:37.898+0000",
+      showTimer: false,
+      identifier: "do_214155920669442048180",
+      description: "Section-1",
+      containsUserData: "No",
+      allowSkip: "Yes",
+      compatibilityLevel: 6,
+      trackable: {
+        enabled: "No",
+        autoBatch: "No",
+      },
+      primaryCategory: "Practice Question Set",
+      setType: "materialised",
+      languageCode: ["en"],
+      attributions: [],
+      scoreCutoffType: "AssessmentLevel",
+      versionKey: "1728017659844",
+      mimeType: "application/vnd.sunbird.questionset",
+      code: "bed3d9c0-d272-4bc5-8df8-f19bc55abf5e",
+      license: "CC BY 4.0",
+      qumlVersion: 1.1,
+      prevStatus: "Draft",
+      showHints: false,
+      language: ["English"],
+      showFeedback: true,
+      objectType: "QuestionSet",
+      status: "Live",
+      requiresSubmit: "No",
+      shuffle: true,
+      contentEncoding: "gzip",
+      depth: 1,
+      instructions: "<p>This section contains simple maths questions !!</p>",
+      allowAnonymousAccess: "Yes",
+      contentDisposition: "inline",
+      schemaVersion: "1.1",
+      allowBranching: "No",
+      visibility: "Parent",
+      showSolutions: true,
+      index: 1,
     },
-    "identifier": "do_214155920494116864179",
-    "instructions": "<p>Best of luck !!</p>",
-    "outcomeDeclaration": {
-        "maxScore": {
-            "cardinality": "single",
-            "type": "integer",
-            "defaultValue": 3
-        }
+  ],
+  contentEncoding: "gzip",
+  generateDIALCodes: "No",
+  showSolutions: false,
+  trackable: {
+    enabled: "No",
+    autoBatch: "No",
+  },
+  identifier: "do_214155920494116864179",
+  instructions: "<p>Best of luck !!</p>",
+  outcomeDeclaration: {
+    maxScore: {
+      cardinality: "single",
+      type: "integer",
+      defaultValue: 3,
     },
-    "audience": [
-        "Administrator"
-    ],
-    "visibility": "Default",
-    "showTimer": false,
-    "author": "RD",
-    "childNodes": [
-        "do_214155921159274496182",
-        "do_214155920669442048180"
-    ],
-    "languageCode": [
-        "en"
-    ],
-    "license": "CC BY 4.0",
-    "size": 4421,
-    "lastPublishedOn": "2024-10-04T04:57:09.337+0000",
-    "name": "Test Questionset",
-    "allowBranching": "No",
-    "status": "Live",
-    "code": "de1508e3-cd30-48ba-b4de-25a98d8cfdd2",
-    "allowSkip": "Yes",
-    "containsUserData": "No",
-    "qumlVersion": 1.1,
-    "prevStatus": "Draft",
-    "description": "Test Questionset",
-    "createdOn": "2024-10-04T04:53:58.444+0000",
-    "pdfUrl": "",
-    "scoreCutoffType": "AssessmentLevel",
-    "contentDisposition": "inline",
-    "lastUpdatedOn": "2024-10-04T04:57:10.479+0000",
-    "allowAnonymousAccess": "Yes",
-    "lastStatusChangedOn": "2024-10-04T04:57:10.479+0000",
-    "schemaVersion": "1.1",
-    "requiresSubmit": "No",
-    "setType": "materialised",
-    "pkgVersion": 1,
-    "versionKey": "1728017737923",
-    "showFeedback": false,
-    "depth": 0,
-    "compatibilityLevel": 6,
-    "navigationMode": "non-linear",
-    "timeLimits": {
-        "questionSet": {
-            "max": 0,
-            "min": 0
-        }
+  },
+  audience: ["Administrator"],
+  visibility: "Default",
+  showTimer: false,
+  author: "RD",
+  childNodes: ["do_214155921159274496182", "do_214155920669442048180"],
+  languageCode: ["en"],
+  license: "CC BY 4.0",
+  size: 4421,
+  lastPublishedOn: "2024-10-04T04:57:09.337+0000",
+  name: "Test Questionset",
+  allowBranching: "No",
+  status: "Live",
+  code: "de1508e3-cd30-48ba-b4de-25a98d8cfdd2",
+  allowSkip: "Yes",
+  containsUserData: "No",
+  qumlVersion: 1.1,
+  prevStatus: "Draft",
+  description: "Test Questionset",
+  createdOn: "2024-10-04T04:53:58.444+0000",
+  pdfUrl: "",
+  scoreCutoffType: "AssessmentLevel",
+  contentDisposition: "inline",
+  lastUpdatedOn: "2024-10-04T04:57:10.479+0000",
+  allowAnonymousAccess: "Yes",
+  lastStatusChangedOn: "2024-10-04T04:57:10.479+0000",
+  schemaVersion: "1.1",
+  requiresSubmit: "No",
+  setType: "materialised",
+  pkgVersion: 1,
+  versionKey: "1728017737923",
+  showFeedback: false,
+  depth: 0,
+  compatibilityLevel: 6,
+  navigationMode: "non-linear",
+  timeLimits: {
+    questionSet: {
+      max: 0,
+      min: 0,
     },
-    "shuffle": true
-}
+  },
+  shuffle: true,
+};
+export const epubMetadata = {
+  copyright: "2023",
+  subject: ["Mathematics"],
+  channel: "0123221758376673287017",
+  language: ["English"],
+  mimeType: "application/epub",
+  objectType: "Content",
+  gradeLevel: ["Class 1"],
+  appIcon: "",
+  primaryCategory: "Explanation Content",
+  artifactUrl:
+    "https://obj.diksha.gov.in/ntp-content-production/content/do_43138920995520839681162/artifact/orwell-animal-farm.epub",
+  contentType: "ClassroomTeachingVideo",
+  identifier: "do_43138920995520839681162",
+  audience: ["Student"],
+  visibility: "Default",
+  author: "Jaga prod ind contribute",
+  mediaType: "content",
+  osId: "org.ekstep.quiz.app",
+  languageCode: ["en"],
+  license: "CC BY 4.0",
+  name: "Explanation Content epub",
+  status: "Live",
+  code: "626caead-8c24-3bcd-dd2d-267fa8fd8846",
+  interceptionPoints: {},
+  streamingUrl:
+    "https://obj.diksha.gov.in/ntp-content-production/content/do_43138920995520839681162/artifact/orwell-animal-farm.epub",
+  medium: ["English"],
+  createdOn: "2023-09-27T11:26:29.232+0000",
+  lastUpdatedOn: "2023-09-27T11:26:33.975+0000",
+  originData: {
+    identifier: "do_43138920995520839681162",
+    repository:
+      "https://vdn.diksha.gov.in/api/content/v1/read/do_43138920995520839681162",
+  },
+  creator: "Jaga prod ind contribute",
+  pkgVersion: 1,
+  versionKey: "1695813990615",
+  framework: "z_test_framework",
+  createdBy: "fbfd235c-00a9-409e-af3e-6e5dcb7e738b",
+  board: "Others",
+  orgDetails: {
+    email: "dummy@ekstep.org",
+    orgName: "EKSTEP",
+  },
+  licenseDetails: {
+    name: "CC BY 4.0",
+    url: "https://creativecommons.org/licenses/by/4.0/legalcode",
+    description: "For details see below:",
+  },
+};

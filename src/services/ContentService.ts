@@ -5,6 +5,7 @@ import axios from "axios";
 import { MIME_TYPE } from "@/utils/app.config";
 const authToken = process.env.NEXT_PUBLIC_AUTH_API_TOKEN;
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+import { v4 as uuidv4 } from "uuid";
 
 const userId = getLocalStoredUserData();
 // const userInfo = JSON.parse(userData);
@@ -99,34 +100,6 @@ export const createQuestionSet = async () => {
   }
 };
 
-export const createCourse = async (userId: string) => {
-  const apiURL = `/action/content/v3/create`;
-  const reqBody = {
-    "request": {
-      "content": {
-        "code": "12345678910",
-        "name": "Untitled Course",
-        "description": "Enter description for Course",
-        "createdBy": userId || "5afb0c71-5e85-46f6-8780-3059cbb7bbf9",
-        "createdFor": [
-          "test-k12-channel"
-        ],
-        "mimeType": "application/vnd.ekstep.content-collection",
-        "resourceType": "Course",
-        "primaryCategory": "Course",
-        "contentType": "Course"
-      }
-    }
-  };
-
-  try {
-    const response = await axios.post(apiURL, reqBody, {});
-    return response?.data;
-  } catch (error) {
-    throw error;
-  }
-};
-
 export const deleteContent = async (identifier: string, mimeType: string) => {
   const questionsetRetireURL = `/action/questionset/v2/retire/${identifier}`;
   const contentRetireURL = `/action/content/v3/retire/${identifier}`;
@@ -147,23 +120,54 @@ export const deleteContent = async (identifier: string, mimeType: string) => {
   }
 };
 
+export const createCourse = async (userId: any) => {
+  const apiURL = `/action/content/v3/create`;
+
+  const reqBody = {
+    request: {
+      content: {
+        code: uuidv4(), // Generate a unique ID for 'code'
+        name: "Untitled Course",
+        description: "Enter description for Course",
+        createdBy: userId || "bcb1050b-1967-4a04-8da2-df3ed9d282d4",
+        createdFor: ["test-k12-channel"],
+        mimeType: MIME_TYPE.COURSE_MIME_TYPE,
+
+        resourceType: "Course",
+        primaryCategory: "Course",
+        contentType: "Course",
+      },
+    },
+  };
+
+  try {
+    const response = await axios.post(apiURL, reqBody, {});
+    return response?.data;
+  } catch (error) {
+    console.error("Error creating course:", error);
+    throw error;
+  }
+};
 
 export const publishContent = async (identifier: any) => {
   try {
-    const response = await axios.post('/api/publish', { identifier });
+    const response = await axios.post("/api/publish", { identifier });
     return response.data;
   } catch (error) {
-    console.error('Error during publishing:', error);
+    console.error("Error during publishing:", error);
     throw error;
   }
 };
 
 export const submitComment = async (identifier: any, comment: any) => {
   try {
-    const response = await axios.post('/api/submit-comment', { identifier, comment });
+    const response = await axios.post("/api/submit-comment", {
+      identifier,
+      comment,
+    });
     return response.data;
   } catch (error) {
-    console.error('Error submitting comment:', error);
+    console.error("Error submitting comment:", error);
     throw error;
   }
 };

@@ -25,5 +25,14 @@ declare namespace JSX {
       onEvent?: any;
       onTelemetry?: any;
     };
+
+    "sunbird-epub-player": React.DetailedHTMLProps<
+      React.HTMLAttributes<HTMLElement>,
+      HTMLElement
+    > & {
+      "player-config"?: string;
+      onEvent?: any;
+      onTelemetry?: any;
+    };
   }
 }

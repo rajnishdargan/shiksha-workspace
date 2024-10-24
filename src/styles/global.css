@@ -1,6 +1,6 @@
 .player-grid {
-  height: 80vh;
-  width: 90%;
+  height: 100%;
+  width: 100%;
   margin: 0 auto;
   display: grid;
   gap: 1.5rem;

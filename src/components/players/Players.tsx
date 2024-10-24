@@ -14,6 +14,12 @@ const SunbirdVideoPlayer = dynamic(
     ssr: false,
   }
 );
+const SunbirdEpubPlayer = dynamic(
+  () => import("@/components/players/SunbirdEpubPlayer"),
+  {
+    ssr: false,
+  }
+);
 
 const SunbirdQuMLPlayer = dynamic(
   () => import("@/components/players/SunbirdQuMLPlayer"),
@@ -35,6 +41,8 @@ const Players = ({ playerConfig }: PlayerProps) => {
       return <SunbirdVideoPlayer playerConfig={playerConfig} />;
     case "application/vnd.sunbird.questionset":
       return <SunbirdQuMLPlayer playerConfig={playerConfig} />;
+    case "application/epub":
+      return <SunbirdEpubPlayer playerConfig={playerConfig} />;
     default:
       return <div>Unsupported media type</div>;
   }
