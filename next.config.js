@@ -51,6 +51,10 @@ const nextConfig = {
         destination: "/api/proxy?path=/action/content/:path*", // Forward other /action/asset requests to proxy.js
       },
       {
+        source: "/action/composite/v3/search", // Match telemetry route
+        destination: "/api/composite-search", // Redirect to telemetry proxy
+      },
+      {
         source: "/action/:path*", // Match any other routes starting with /action/
         destination: "/api/proxy?path=/action/:path*", // Forward them to proxy.js
       },

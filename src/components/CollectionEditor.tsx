@@ -172,6 +172,24 @@ const CollectionEditor: React.FC = () => {
           "https://cdn.jsdelivr.net/npm/@project-sunbird/sunbird-collection-editor-web-component@latest/styles.css";
         document.head.appendChild(link);
       }
+
+      if (!document.getElementById("sunbird-pdf-player-js")) {
+        const pdfScript = document.createElement("script");
+        pdfScript.id = "sunbird-pdf-player-js";
+        pdfScript.src =
+          "https://cdn.jsdelivr.net/npm/@project-sunbird/sunbird-pdf-player-web-component@1.4.0/sunbird-pdf-player.js";
+        pdfScript.async = true;
+        document.body.appendChild(pdfScript);
+      }
+
+      if (!document.getElementById("sunbird-pdf-player-css")) {
+        const pdfLink = document.createElement("link");
+        pdfLink.id = "sunbird-pdf-player-css";
+        pdfLink.rel = "stylesheet";
+        pdfLink.href =
+          "https://cdn.jsdelivr.net/npm/@project-sunbird/sunbird-pdf-player-web-component@1.4.0/styles.css";
+        document.head.appendChild(pdfLink);
+      }
     };
 
     loadAssets();

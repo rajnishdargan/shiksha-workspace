@@ -99,6 +99,34 @@ export const createQuestionSet = async () => {
   }
 };
 
+export const createCourse = async (userId: string) => {
+  const apiURL = `/action/content/v3/create`;
+  const reqBody = {
+    "request": {
+      "content": {
+        "code": "12345678910",
+        "name": "Untitled Course",
+        "description": "Enter description for Course",
+        "createdBy": userId || "5afb0c71-5e85-46f6-8780-3059cbb7bbf9",
+        "createdFor": [
+          "test-k12-channel"
+        ],
+        "mimeType": "application/vnd.ekstep.content-collection",
+        "resourceType": "Course",
+        "primaryCategory": "Course",
+        "contentType": "Course"
+      }
+    }
+  };
+
+  try {
+    const response = await axios.post(apiURL, reqBody, {});
+    return response?.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
 export const deleteContent = async (identifier: string, mimeType: string) => {
   const questionsetRetireURL = `/action/questionset/v2/retire/${identifier}`;
   const contentRetireURL = `/action/content/v3/retire/${identifier}`;
@@ -122,20 +150,20 @@ export const deleteContent = async (identifier: string, mimeType: string) => {
 
 export const publishContent = async (identifier: any) => {
   try {
-      const response = await axios.post('/api/publish', { identifier });
-      return response.data;
+    const response = await axios.post('/api/publish', { identifier });
+    return response.data;
   } catch (error) {
-      console.error('Error during publishing:', error);
-      throw error;
+    console.error('Error during publishing:', error);
+    throw error;
   }
 };
 
 export const submitComment = async (identifier: any, comment: any) => {
   try {
-      const response = await axios.post('/api/submit-comment', {identifier, comment });
-      return response.data;
+    const response = await axios.post('/api/submit-comment', { identifier, comment });
+    return response.data;
   } catch (error) {
-      console.error('Error submitting comment:', error);
-      throw error;
+    console.error('Error submitting comment:', error);
+    throw error;
   }
 };
